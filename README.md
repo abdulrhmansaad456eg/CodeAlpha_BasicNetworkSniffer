@@ -1,5 +1,8 @@
 # Network Sniffer
 
+[![Tests](https://github.com/abdulrhmansaad456eg/CodeAlpha_BasicNetworkSniffer/actions/workflows/tests.yml/badge.svg)](https://github.com/abdulrhmansaad456eg/CodeAlpha_BasicNetworkSniffer/actions/workflows/tests.yml)
+
+
 A desktop packet capture tool built with Python and CustomTkinter, made for learning how network traffic actually works. It grabs live packets off the wire, breaks them down by protocol, and shows everything in a filterable interface.
 
 Note: capture performance depends on how busy the network is, and on Windows you'll need admin rights.
