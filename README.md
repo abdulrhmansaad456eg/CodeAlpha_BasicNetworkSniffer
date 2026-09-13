@@ -1,6 +1,8 @@
 # Network Sniffer
-Packet capture performance may vary depending on network traffic volume and Windows permissions.
-A modern, interactive network packet capture tool built for cybersecurity education and professional training. This desktop application provides real-time packet analysis with a sleek, intuitive interface.
+
+A desktop packet capture tool built with Python and CustomTkinter, made for learning how network traffic actually works. It grabs live packets off the wire, breaks them down by protocol, and shows everything in a filterable interface.
+
+Note: capture performance depends on how busy the network is, and on Windows you'll need admin rights.
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2011-purple.svg)
@@ -10,9 +12,7 @@ A modern, interactive network packet capture tool built for cybersecurity educat
 
 ## Overview
 
-A practical network analysis tool that demonstrates core networking concepts while providing real utility for packet inspection and traffic monitoring. Built as a cybersecurity portfolio project.
-
-The sniffer captures live network traffic and presents it in an organized, filterable interface. It supports multiple protocols and provides detailed packet analysis capabilities.
+This is a cybersecurity portfolio project. It captures live network traffic and presents it in an organized, searchable interface, covering the common protocols you run into day to day.
 
 ---
 
@@ -25,29 +25,27 @@ The sniffer captures live network traffic and presents it in an organized, filte
 - Support for TCP, UDP, ICMP, and HTTP traffic
 
 ### Protocol Analysis
-- **TCP**: Full header inspection with flag analysis
-- **UDP**: Port and payload examination
-- **ICMP**: Type and code interpretation
-- **HTTP**: Request/response detection and parsing
+- **TCP**: header inspection with flag analysis
+- **UDP**: port and payload examination
+- **ICMP**: type and code interpretation
+- **HTTP**: request/response detection and parsing
 
 ### Interactive Controls
-- Start/Stop capture with animated buttons
+- Start/Stop capture
 - Protocol filtering (TCP, UDP, ICMP, ALL)
-- Advanced search across all packet fields
+- Search across all packet fields
 - Real-time statistics dashboard
 
 ### Data Management
-- Export captured packets to JSON or TXT with custom save location
+- Export captured packets to JSON or TXT with a custom save location
 - Persistent log storage
 - Clear data functionality
 - Packet details inspection dialog
 
-### Modern UI/UX
-- Dark cybersecurity-themed interface
+### UI
+- Dark themed interface
 - CustomTkinter for native Windows styling
-- Animated counters and status indicators
-- Smooth hover effects and transitions
-- Responsive layout adapting to window size
+- Responsive layout that adapts to window size
 
 ---
 
@@ -73,8 +71,8 @@ The sniffer captures live network traffic and presents it in an organized, filte
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/abdulrhmansaad456eg/CodeAlpha_Basic-Network-Sniffer.git
-   cd CodeAlpha_Basic-Network-Sniffer
+   git clone https://github.com/abdulrhmansaad456eg/CodeAlpha_BasicNetworkSniffer.git
+   cd CodeAlpha_BasicNetworkSniffer
    ```
 
 2. **Install Python dependencies**
@@ -84,12 +82,12 @@ The sniffer captures live network traffic and presents it in an organized, filte
 
 3. **Install Npcap (if not already installed)**
    - Download from https://npcap.com/
-   - Run installer with "WinPcap API-compatible Mode" enabled
+   - Run the installer with "WinPcap API-compatible Mode" enabled
    - Restart your computer
 
 4. **Run the application**
    ```bash
-   # Right-click terminal and select "Run as Administrator"
+   # Open the terminal as administrator first
    python main.py
    ```
 
@@ -99,9 +97,9 @@ The sniffer captures live network traffic and presents it in an organized, filte
 
 ### Starting a Capture
 1. Launch the application as administrator
-2. Select your desired protocol filter (default: ALL)
+2. Select a protocol filter (default: ALL)
 3. Click "Start Capture"
-4. Watch packets appear in real-time
+4. Packets appear in real time
 
 ### Analyzing Packets
 - Double-click any packet to view detailed information
@@ -110,14 +108,13 @@ The sniffer captures live network traffic and presents it in an organized, filte
 
 ### Exporting Data
 1. Click "Export Data" in the sidebar
-2. Select your preferred format (JSON or TXT)
+2. Pick a format (JSON or TXT)
 3. Click "Confirm Export"
-4. Choose your save location in the file picker
-5. The file is saved to your selected location
+4. Choose a save location in the file picker
 
 ### Keyboard Shortcuts
-- `Enter` on selected packet - Open details
-- Search bar supports live filtering
+- `Enter` on a selected packet opens its details
+- The search bar filters live as you type
 
 ---
 
@@ -129,47 +126,39 @@ The sniffer captures live network traffic and presents it in an organized, filte
 | Packet Capture | Scapy 2.5+ |
 | GUI Framework | CustomTkinter |
 | Utilities | psutil, Pillow |
-| Styling | Native Windows dark theme |
 
 ---
 
-## Learning Outcomes
+## What I Learned
 
-Through this project, I gained practical experience with:
-
-- **Network Protocols**: Deep understanding of TCP/IP stack, packet structures, and protocol behaviors
-- **Scapy Framework**: Mastered packet crafting, sniffing, and manipulation
-- **Threading**: Implemented safe concurrent packet capture without UI freezing
-- **Desktop UI Development**: Built responsive interfaces with modern design principles
-- **Error Handling**: Managed permission issues, driver dependencies, and network errors
-- **Data Processing**: Efficient parsing and filtering of network data streams
+- **Network protocols**: how the TCP/IP stack fits together, packet structures, protocol behavior
+- **Scapy**: packet capture and parsing in practice
+- **Threading**: running capture in the background without freezing the UI
+- **Desktop UI development**: building a responsive interface with CustomTkinter
+- **Error handling**: permission issues, driver dependencies, network errors
+- **Data processing**: parsing and filtering a live stream of packets
 
 ---
 
 ## Project Structure
 
 ```
-CodeAlpha_Basic-Network-Sniffer/
-├── assets/
-│   ├── icons/
-│   ├── themes/
-│   └── animations/
+CodeAlpha_BasicNetworkSniffer/
 ├── core/
 │   ├── sniffer.py          # Packet capture engine
-│   ├── packet_parser.py     # Packet analysis utilities
-│   ├── filters.py           # Search and filter logic
-│   └── exporter.py          # Export functionality
+│   ├── packet_parser.py    # Packet analysis utilities
+│   ├── filters.py          # Search and filter logic
+│   └── exporter.py         # Export functionality
 ├── ui/
-│   ├── main_window.py       # Main application window
-│   ├── widgets.py           # Custom UI components
-│   ├── styles.py            # Theme and styling
-│   └── dialogs.py           # Popup dialogs
-├── logs/                    # Exported capture files
-├── tests/                   # Unit tests
-├── screenshots/             # Application screenshots
-├── main.py                  # Entry point
-├── requirements.txt         # Dependencies
-└── README.md               # This file
+│   ├── main_window.py      # Main application window
+│   ├── widgets.py          # Custom UI components
+│   ├── styles.py           # Theme and styling
+│   └── dialogs.py          # Popup dialogs
+├── tests/                  # Unit tests
+├── screenshots/            # Application screenshots
+├── main.py                 # Entry point
+├── requirements.txt        # Dependencies
+└── README.md
 ```
 
 ---
@@ -184,13 +173,12 @@ Install Npcap from https://npcap.com/ and restart your computer.
 
 ### "No traffic appearing"
 - Check your network connection
-- Try generating traffic: open a browser, ping a website
+- Generate some traffic: open a browser, ping a website
 - Verify firewall settings
 
 ### Application crashes on start
-- Ensure all dependencies are installed: `pip install -r requirements.txt`
-- Check Python version (3.11+ required)
-- Verify Windows 11 compatibility
+- Make sure all dependencies are installed: `pip install -r requirements.txt`
+- Check your Python version (3.11+ required)
 
 ---
 
@@ -212,14 +200,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Acknowledgments
-
-- The open source community for excellent tools and libraries
-- Scapy developers for the excellent packet manipulation framework
-- CustomTkinter team for modern Python UI components
-
-Project Link: [https://github.com/abdulrhmansaad456eg/CodeAlpha_Basic-Network-Sniffer](https://github.com/abdulrhmansaad456eg/CodeAlpha_Basic-Network-Sniffer)
-
----
-
-*Built with dedication for cybersecurity education and professional development.*
+Project Link: [https://github.com/abdulrhmansaad456eg/CodeAlpha_BasicNetworkSniffer](https://github.com/abdulrhmansaad456eg/CodeAlpha_BasicNetworkSniffer)
